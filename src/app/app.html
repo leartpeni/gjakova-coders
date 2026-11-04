@@ -1,0 +1,64 @@
+<a class="skip-link" href="#main">Kalo te përmbajtja</a>
+<app-header />
+<main id="main" tabindex="-1">
+  <app-hero />
+  <app-stats />
+
+  @defer (on viewport; prefetch on idle) {
+    <app-programs />
+  } @placeholder {
+    <div id="programet" class="ph" style="min-height: 900px"></div>
+  }
+
+  @defer (on viewport; prefetch on idle) {
+    <app-roadmap />
+  } @placeholder {
+    <div id="plani" class="ph" style="min-height: 800px"></div>
+  }
+
+  @defer (on viewport; prefetch on idle) {
+    <app-benefits />
+  } @placeholder {
+    <div id="perfitimet" class="ph" style="min-height: 500px"></div>
+  }
+
+  @defer (on viewport; prefetch on idle) {
+    <app-steps />
+  } @placeholder {
+    <div id="hapat" class="ph" style="min-height: 450px"></div>
+  }
+
+  @defer (on viewport; prefetch on idle) {
+    <app-pricing />
+  } @placeholder {
+    <div id="cmimet" class="ph" style="min-height: 700px"></div>
+  }
+
+  @defer (on viewport; prefetch on idle) {
+    <app-faq />
+  } @placeholder {
+    <div id="faq" class="ph" style="min-height: 650px"></div>
+  }
+
+  @defer (on viewport; prefetch on idle) {
+    <app-cta-band />
+  } @placeholder {
+    <div class="ph" style="min-height: 260px"></div>
+  }
+
+  @defer (on viewport; prefetch on idle) {
+    <app-registration />
+  } @placeholder {
+    <div id="regjistrimi" class="ph" style="min-height: 820px"></div>
+  }
+
+  @if (hasContact) {
+    @defer (on viewport; prefetch on idle) {
+      <app-contact />
+    } @placeholder {
+      <div id="kontakti" class="ph" style="min-height: 340px"></div>
+    }
+  }
+</main>
+<app-footer />
+<app-whatsapp-fab />
