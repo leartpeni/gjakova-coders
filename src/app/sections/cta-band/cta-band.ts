@@ -1,21 +1,21 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { SITE_CONFIG } from '../../core/config/site.config';
-import { eur } from '../../core/utils/money';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { I18nService } from '../../core/i18n/i18n.service';
+import { TPipe } from '../../core/i18n/t.pipe';
 import { Reveal } from '../../shared/reveal/reveal';
 
 @Component({
   selector: 'app-cta-band',
-  imports: [Reveal],
+  imports: [Reveal, TPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="section" aria-labelledby="cta-title">
+    <section class="section section--tint" aria-labelledby="cta-title">
       <div class="container">
         <div class="band" appReveal>
           <div>
-            <h2 id="cta-title">Gati për hapin e parë?</h2>
-            <p>Oferta {{ offer }} në muaj vlen vetëm për regjistrimet e para.</p>
+            <h2 id="cta-title">{{ 'cta.title' | t }}</h2>
+            <p>{{ 'cta.text' | t }}</p>
           </div>
-          <a class="btn btn--primary" href="#regjistrimi">Regjistrohu tani</a>
+          <a class="btn btn--primary" href="#regjistrimi">{{ 'cta.button' | t }}</a>
         </div>
       </div>
     </section>
@@ -54,6 +54,4 @@ import { Reveal } from '../../shared/reveal/reveal';
     }
   `,
 })
-export class CtaBand {
-  protected readonly offer = eur(inject(SITE_CONFIG).openingPrice);
-}
+export class CtaBand {}

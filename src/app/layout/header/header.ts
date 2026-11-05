@@ -8,16 +8,18 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
+import { I18nService } from '../../core/i18n/i18n.service';
+import { TPipe } from '../../core/i18n/t.pipe';
 import { Logo } from '../../shared/logo/logo';
 
 interface NavLink {
-  readonly label: string;
+  readonly id: 'programs' | 'prices' | 'faq' | 'register';
   readonly href: string;
 }
 
 @Component({
   selector: 'app-header',
-  imports: [Logo],
+  imports: [Logo, TPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '(document:keydown.escape)': 'closeOnEscape()',
@@ -26,17 +28,26 @@ interface NavLink {
   template: `
     <header class="header">
       <div class="container bar">
-        <a class="brand" href="#top" aria-label="Gjakova Coders – kreu"
+        <a class="brand" href="#top" [attr.aria-label]="'header.brandLabel' | t"
           ><app-logo class="compact" [size]="40"
         /></a>
 
-        <nav class="desktop-nav" aria-label="Menyja kryesore">
+        <nav class="desktop-nav" [attr.aria-label]="'header.mainNav' | t">
           @for (link of links; track link.href) {
-            <a [href]="link.href">{{ link.label }}</a>
+            <a [href]="link.href">{{ 'header.links.' + link.id | t }}</a>
           }
         </nav>
 
-        <a class="btn btn--primary btn--sm cta" href="#regjistrimi">Regjistrohu</a>
+        <a class="btn btn--primary btn--sm cta" href="#regjistrimi">{{ 'header.cta' | t }}</a>
+
+        <button
+          type="button"
+          class="lang"
+          [attr.aria-label]="'header.langLabel' | t"
+          (click)="i18n.toggle()"
+        >
+          {{ 'header.langShort' | t }}
+        </button>
 
         <button
           #toggleBtn
@@ -44,19 +55,24 @@ interface NavLink {
           class="burger"
           [attr.aria-expanded]="open()"
           aria-controls="mobile-menu"
-          [attr.aria-label]="open() ? 'Mbyll menynë' : 'Hap menynë'"
+          [attr.aria-label]="(open() ? 'header.menuClose' : 'header.menuOpen') | t"
           (click)="toggle()"
         >
           <span aria-hidden="true">{{ open() ? '✕' : '☰' }}</span>
         </button>
       </div>
 
-      <nav id="mobile-menu" class="mobile-nav" aria-label="Menyja mobile" [hidden]="!open()">
+      <nav
+        id="mobile-menu"
+        class="mobile-nav"
+        [attr.aria-label]="'header.mobileNav' | t"
+        [hidden]="!open()"
+      >
         <ul class="container">
           @for (link of mobileLinks; track link.href; let first = $first) {
             <li>
               <a [href]="link.href" (click)="close()" [attr.data-first]="first ? '' : null">{{
-                link.label
+                'header.links.' + link.id | t
               }}</a>
             </li>
           }
@@ -103,6 +119,21 @@ interface NavLink {
       color: var(--text);
       font-size: 22px;
       cursor: pointer;
+    }
+    .lang {
+      min-width: 44px;
+      height: 44px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      background: var(--surface);
+      color: var(--text);
+      font: 700 13px/1 var(--font);
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      &:hover {
+        border-color: var(--accent);
+      }
     }
     .mobile-nav {
       border-top: 1px solid var(--border);
@@ -154,6 +185,7 @@ interface NavLink {
   `,
 })
 export class Header {
+  protected readonly i18n = inject(I18nService);
   private readonly injector = inject(Injector);
   private readonly toggleBtn = viewChild.required<ElementRef<HTMLButtonElement>>('toggleBtn');
   private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
@@ -161,14 +193,13 @@ export class Header {
   protected readonly open = signal(false);
 
   protected readonly links: readonly NavLink[] = [
-    { label: 'Programet', href: '#programet' },
-    { label: 'Plani mësimor', href: '#plani' },
-    { label: 'Çmimet', href: '#cmimet' },
-    { label: 'Pyetje', href: '#faq' },
+    { id: 'programs', href: '#programet' },
+    { id: 'prices', href: '#cmimet' },
+    { id: 'faq', href: '#faq' },
   ];
   protected readonly mobileLinks: readonly NavLink[] = [
     ...this.links,
-    { label: 'Regjistrimi', href: '#regjistrimi' },
+    { id: 'register', href: '#regjistrimi' },
   ];
 
   protected toggle(): void {

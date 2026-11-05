@@ -1,30 +1,30 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { SITE_CONFIG } from '../../core/config/site.config';
-import { buildFaq } from '../../core/data/faq';
+import { I18nService } from '../../core/i18n/i18n.service';
+import { TPipe } from '../../core/i18n/t.pipe';
 import { Reveal } from '../../shared/reveal/reveal';
 import { SectionHeading } from '../../shared/section-heading/section-heading';
 
 @Component({
   selector: 'app-faq',
-  imports: [SectionHeading, Reveal],
+  imports: [SectionHeading, Reveal, TPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section id="faq" class="section section--tint" aria-labelledby="faq-title">
+    <section id="faq" class="section" aria-labelledby="faq-title">
       <div class="container narrow">
         <app-section-heading
           headingId="faq-title"
-          eyebrow="PYETJE"
-          title="Pyetjet e prindërve"
-          subtitle="Nuk e gjen përgjigjen? Na shkruaj dhe të përgjigjemi shpejt."
+          [eyebrow]="'faq.eyebrow' | t"
+          [title]="'faq.title' | t"
+          [subtitle]="'faq.subtitle' | t"
         />
         <div class="list">
-          @for (item of items; track item.question; let i = $index) {
+          @for (n of i18n.indices('faq.items'); track n; let i = $index) {
             <details class="card" [appReveal]="i * 60">
               <summary>
-                <span>{{ item.question }}</span>
+                <span>{{ 'faq.items.' + n + '.question' | t }}</span>
                 <span class="icon" aria-hidden="true"></span>
               </summary>
-              <p>{{ item.answer }}</p>
+              <p>{{ 'faq.items.' + n + '.answer' | t }}</p>
             </details>
           }
         </div>
@@ -91,5 +91,5 @@ import { SectionHeading } from '../../shared/section-heading/section-heading';
   `,
 })
 export class Faq {
-  protected readonly items = buildFaq(inject(SITE_CONFIG));
+  protected readonly i18n = inject(I18nService);
 }

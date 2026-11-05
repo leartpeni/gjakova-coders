@@ -1,27 +1,28 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { STEPS } from '../../core/data/steps';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { I18nService } from '../../core/i18n/i18n.service';
+import { TPipe } from '../../core/i18n/t.pipe';
 import { Reveal } from '../../shared/reveal/reveal';
 import { SectionHeading } from '../../shared/section-heading/section-heading';
 
 @Component({
   selector: 'app-steps',
-  imports: [SectionHeading, Reveal],
+  imports: [SectionHeading, Reveal, TPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section id="hapat" class="section section--tint" aria-labelledby="hapat-title">
+    <section id="hapat" class="section" aria-labelledby="hapat-title">
       <div class="container">
         <app-section-heading
           headingId="hapat-title"
-          eyebrow="SI FILLOJMË"
-          title="Tre hapa të thjeshtë"
-          subtitle="Nga regjistrimi deri te mësimi i parë."
+          [eyebrow]="'steps.eyebrow' | t"
+          [title]="'steps.title' | t"
+          [subtitle]="'steps.subtitle' | t"
         />
         <ol class="grid grid--auto">
-          @for (s of steps; track s.title; let i = $index) {
+          @for (n of i18n.indices('steps.items'); track n; let i = $index) {
             <li class="card card--lift" [appReveal]="i * 100">
               <span class="badge" aria-hidden="true">{{ i + 1 }}</span>
-              <h3>{{ s.title }}</h3>
-              <p>{{ s.text }}</p>
+              <h3>{{ 'steps.items.' + n + '.title' | t }}</h3>
+              <p>{{ 'steps.items.' + n + '.text' | t }}</p>
             </li>
           }
         </ol>
@@ -67,5 +68,5 @@ import { SectionHeading } from '../../shared/section-heading/section-heading';
   `,
 })
 export class Steps {
-  protected readonly steps = STEPS;
+  protected readonly i18n = inject(I18nService);
 }

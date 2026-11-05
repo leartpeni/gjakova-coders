@@ -1,40 +1,42 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { SITE_CONFIG } from '../../core/config/site.config';
-import { eur } from '../../core/utils/money';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { I18nService } from '../../core/i18n/i18n.service';
+import { TPipe } from '../../core/i18n/t.pipe';
 import { Logo } from '../../shared/logo/logo';
 
 @Component({
   selector: 'app-hero',
-  imports: [Logo],
+  imports: [Logo, TPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section id="top" class="hero" aria-labelledby="hero-title">
       <div class="container grid-2">
         <div class="copy">
-          <span class="eyebrow">KURS I RI NË GJAKOVË</span>
-          <h1 id="hero-title"><span class="gradient-text">Programim</span><br />për fëmijë</h1>
+          <span class="eyebrow">{{ 'hero.eyebrow' | t }}</span>
+          <h1 id="hero-title">
+            <span class="gradient-text">{{ 'hero.titleHighlight' | t }}</span
+            ><br />{{ 'hero.titleRest' | t }}
+          </h1>
           <p class="lead">
-            Fëmijët dhe të rinjtë 7–18 vjeç mësojnë të krijojnë lojëra, faqe interneti dhe
-            aplikacione. Mëso. Ndërto. Krijo.
+            {{ 'hero.lead' | t }}
           </p>
           <div class="actions">
-            <a class="btn btn--primary" href="#regjistrimi">Regjistrohu tani</a>
-            <a class="btn btn--outline" href="#programet">Shiko programet</a>
+            <a class="btn btn--primary" href="#regjistrimi">{{ 'hero.register' | t }}</a>
+            <a class="btn btn--outline" href="#programet">{{ 'hero.programs' | t }}</a>
           </div>
           <ul class="chips">
-            <li class="chip chip--offer">Ofertë: {{ offer }}/muaj për regjistrimet e para</li>
-            <li class="chip">Mosha 7–18 vjeç</li>
-            <li class="chip">7 kurse</li>
-            <li class="chip">{{ config.lessonsPerWeek }} herë në javë</li>
-            <li class="chip">Gjakovë</li>
+            <li class="chip chip--offer">{{ 'hero.offerChip' | t }}</li>
+            <li class="chip">{{ 'hero.ageChip' | t }}</li>
+            <li class="chip">{{ 'hero.coursesChip' | t }}</li>
+            <li class="chip">{{ 'hero.perWeekChip' | t }}</li>
+            <li class="chip">{{ 'hero.city' | t }}</li>
           </ul>
         </div>
 
         <div class="visual" aria-hidden="true">
           <div class="window">
             <div class="dots"><i></i><i></i><i></i></div>
-            <pre><code><span class="k">for</span> mosha <span class="k">in</span> <span class="f">range</span>(<span class="n">7</span>, <span class="n">19</span>):
-    <span class="f">print</span>(<span class="s">"Mëso. Ndërto. Krijo."</span>)
+            <pre><code><span class="k">for</span> {{ 'hero.codeVar' | t }} <span class="k">in</span> <span class="f">range</span>(<span class="n">7</span>, <span class="n">19</span>):
+    <span class="f">print</span>(<span class="s">"{{ 'hero.codeText' | t }}"</span>)
 
 kursi = [<span class="s">"Scratch"</span>, <span class="s">"Python"</span>, <span class="s">"AI"</span>]</code></pre>
           </div>
@@ -190,7 +192,4 @@ kursi = [<span class="s">"Scratch"</span>, <span class="s">"Python"</span>, <spa
     }
   `,
 })
-export class Hero {
-  protected readonly config = inject(SITE_CONFIG);
-  protected readonly offer = eur(this.config.openingPrice);
-}
+export class Hero {}

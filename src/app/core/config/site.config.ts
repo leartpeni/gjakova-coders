@@ -14,6 +14,7 @@ export interface SiteConfig {
   readonly openingMonths: number;
   readonly lessonsPerWeek: number;
   readonly lessonDuration: string;
+  readonly lessonDurationEn: string;
 }
 
 export const siteConfig: SiteConfig = {
@@ -26,6 +27,7 @@ export const siteConfig: SiteConfig = {
   openingMonths: 3,
   lessonsPerWeek: 2,
   lessonDuration: '1 orë e 15 min',
+  lessonDurationEn: '1 hour 15 min',
 };
 
 export const SITE_CONFIG = new InjectionToken<SiteConfig>('SITE_CONFIG', {

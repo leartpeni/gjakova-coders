@@ -1,27 +1,29 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BENEFITS } from '../../core/data/benefits';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { BENEFIT_COLORS } from '../../core/data/benefits';
+import { I18nService } from '../../core/i18n/i18n.service';
+import { TPipe } from '../../core/i18n/t.pipe';
 import { Reveal } from '../../shared/reveal/reveal';
 import { SectionHeading } from '../../shared/section-heading/section-heading';
 
 @Component({
   selector: 'app-benefits',
-  imports: [SectionHeading, Reveal],
+  imports: [SectionHeading, Reveal, TPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section id="perfitimet" class="section" aria-labelledby="perfitimet-title">
+    <section id="perfitimet" class="section section--tint" aria-labelledby="perfitimet-title">
       <div class="container">
         <app-section-heading
           headingId="perfitimet-title"
-          eyebrow="PËRFITIMET"
-          title="Pse programim për fëmijët?"
-          subtitle="Programimi është mënyrë e re për të menduar dhe krijuar, jo vetëm për kompjuterë."
+          [eyebrow]="'benefits.eyebrow' | t"
+          [title]="'benefits.title' | t"
+          [subtitle]="'benefits.subtitle' | t"
         />
         <ul class="grid grid--auto">
-          @for (b of benefits; track b.title; let i = $index) {
+          @for (n of i18n.indices('benefits.items'); track n; let i = $index) {
             <li class="card card--lift" [appReveal]="i * 80">
-              <span class="check" [style.background]="b.color" aria-hidden="true">✓</span>
-              <h3>{{ b.title }}</h3>
-              <p>{{ b.text }}</p>
+              <span class="check" [style.background]="colors[n]" aria-hidden="true">✓</span>
+              <h3>{{ 'benefits.items.' + n + '.title' | t }}</h3>
+              <p>{{ 'benefits.items.' + n + '.text' | t }}</p>
             </li>
           }
         </ul>
@@ -53,5 +55,6 @@ import { SectionHeading } from '../../shared/section-heading/section-heading';
   `,
 })
 export class Benefits {
-  protected readonly benefits = BENEFITS;
+  protected readonly i18n = inject(I18nService);
+  protected readonly colors = BENEFIT_COLORS;
 }

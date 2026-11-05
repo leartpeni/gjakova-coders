@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "title": "Gjakova Coders – Kurs programimi për fëmijë në Gjakovë"
+  },
+  "skipLink": "Kalo te përmbajtja",
+  "header": {
+    "brandLabel": "Gjakova Coders – kreu",
+    "mainNav": "Menyja kryesore",
+    "mobileNav": "Menyja mobile",
+    "links": {
+      "programs": "Programet",
+      "prices": "Çmimet",
+      "faq": "Pyetje",
+      "register": "Regjistrimi"
+    },
+    "cta": "Regjistrohu",
+    "menuOpen": "Hap menynë",
+    "menuClose": "Mbyll menynë",
+    "langShort": "EN",
+    "langLabel": "Switch to English"
+  },
+  "hero": {
+    "eyebrow": "KURS I RI NË GJAKOVË",
+    "titleHighlight": "Programim",
+    "titleRest": "për fëmijë",
+    "lead": "Fëmijët dhe të rinjtë 7–18 vjeç mësojnë të krijojnë lojëra, faqe interneti dhe aplikacione. Mëso. Ndërto. Krijo.",
+    "register": "Regjistrohu tani",
+    "programs": "Shiko programet",
+    "offerChip": "Ofertë: {opening}/muaj për regjistrimet e para",
+    "ageChip": "Mosha 7–18 vjeç",
+    "coursesChip": "12 programe",
+    "perWeekChip": "{perWeek} herë në javë",
+    "city": "Gjakovë",
+    "codeVar": "mosha",
+    "codeText": "Mëso. Ndërto. Krijo."
+  },
+  "stats": {
+    "ariaLabel": "Në numra",
+    "courses": "programe",
+    "levels": "nivele",
+    "months": "muaj program",
+    "years": "vjeç"
+  },
+  "programs": {
+    "eyebrow": "PROGRAMET",
+    "title": "Çfarë do të mësojnë fëmijët",
+    "subtitle": "Programet sipas moshës, nga hapat e parë me kompjuterin deri te zhvillimi profesional i web-it.",
+    "project": "Projekt:",
+    "note": "Organizimi: {perWeek} mësime në javë, nga {duration}, grupe sipas moshës."
+  },
+  "benefits": {
+    "eyebrow": "PËRFITIMET",
+    "title": "Pse programim për fëmijët?",
+    "subtitle": "Programimi është mënyrë e re për të menduar dhe krijuar, jo vetëm për kompjuterë.",
+    "items": [
+      {
+        "title": "Të menduarit logjik",
+        "text": "Fëmijët mësojnë të ndajnë problemet në hapa të vegjël."
+      },
+      {
+        "title": "Kreativiteti",
+        "text": "Krijojnë lojëra, animacione dhe faqe të tyre."
+      },
+      {
+        "title": "Zgjidhja e problemeve",
+        "text": "Gabimet bëhen mësim: testojnë, ndryshojnë, provojnë sërish."
+      },
+      {
+        "title": "Aftësi për të ardhmen",
+        "text": "Teknologjia është pjesë e çdo profesioni të sotëm."
+      }
+    ]
+  },
+  "steps": {
+    "eyebrow": "SI FILLOJMË",
+    "title": "Tre hapa të thjeshtë",
+    "subtitle": "Nga regjistrimi deri te mësimi i parë.",
+    "items": [
+      {
+        "title": "Regjistrohu",
+        "text": "Plotëso formularin ose na shkruaj në WhatsApp."
+      },
+      {
+        "title": "Mësim provë",
+        "text": "Rezervo vendin, njihu me mësuesin dhe zgjidh grupin e duhur."
+      },
+      {
+        "title": "Fillo mësimin",
+        "text": "Fëmija nis me projektin e parë dhe ecën hap pas hapi."
+      }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "ÇMIMET",
+    "title": "Çmimi i kursit",
+    "subtitle": "Një çmim i thjeshtë për të gjitha grupmoshat, pa surpriza.",
+    "perMonth": "në muaj",
+    "previousPrice": "Çmimi i mëparshëm: ",
+    "regular": {
+      "price": "{regular}",
+      "title": "Çmimi i rregullt",
+      "checks": [
+        "{perWeek} herë në javë",
+        "{duration} çdo mësim",
+        "Të gjitha grupmoshat 7–18 vjeç",
+        "Grup sipas moshës"
+      ]
+    },
+    "opening": {
+      "price": "{opening}",
+      "badge": "VETËM PËR REGJISTRIMET E PARA",
+      "title": "Ofertë hapjeje",
+      "checks": [
+        "Pagesa për {months} muaj: {total} gjithsej",
+        "{perWeek} herë në javë, {duration}",
+        "Të gjitha grupmoshat 7–18 vjeç",
+        "Grup sipas moshës"
+      ]
+    },
+    "pills": ["Oferta vlen vetëm për regjistrimet e para", "Paguhet për {months} muaj: {total}"]
+  },
+  "faq": {
+    "eyebrow": "PYETJE",
+    "title": "Pyetjet e prindërve",
+    "subtitle": "Nuk e gjen përgjigjen? Na shkruaj dhe të përgjigjemi shpejt.",
+    "items": [
+      {
+        "question": "Për çfarë moshash është kursi?",
+        "answer": "Për fëmijë dhe të rinj 7–18 vjeç. Grupet ndahen sipas moshës."
+      },
+      {
+        "question": "A duhet të dijë fëmija diçka më parë?",
+        "answer": "Jo. Fillojmë nga baza me Code.org dhe Scratch, dhe vazhdojmë hap pas hapi."
+      },
+      {
+        "question": "Si ndahen grupet?",
+        "answer": "Sipas moshës dhe nivelit të fëmijës, që secili të mësojë me ritmin e vet."
+      },
+      {
+        "question": "A mund të provojmë një mësim para regjistrimit?",
+        "answer": "Po. Shkruaj në formularin më poshtë dhe rezervo vendin për mësim provë."
+      },
+      {
+        "question": "Sa kushton kursi?",
+        "answer": "{regular} në muaj për {perWeek} mësime në javë, nga {duration}, për të gjitha grupmoshat. Për regjistrimet e para: {opening} në muaj kur paguhen {months} muaj së bashku ({total} gjithsej)."
+      },
+      {
+        "question": "Si regjistrohem?",
+        "answer": "Plotëso formularin më poshtë ose na kontakto me mesazh. Të përgjigjemi me orarin dhe vendet e lira."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Gati për hapin e parë?",
+    "text": "Oferta {opening} në muaj vlen vetëm për regjistrimet e para.",
+    "button": "Regjistrohu tani"
+  },
+  "registration": {
+    "eyebrow": "REGJISTRIMI",
+    "title": "Regjistrohu tani",
+    "subtitle": "Plotëso të dhënat dhe mesazhi hapet në WhatsApp, gati për ta dërguar.",
+    "labels": {
+      "parent": "Emri i prindit",
+      "phone": "Numri i telefonit",
+      "age": "Mosha e fëmijës",
+      "plan": "Paketa",
+      "note": "Mesazh (opsionale)"
+    },
+    "submit": "Dërgo në WhatsApp",
+    "place": "Gjakovë, Kosovë",
+    "ages": ["7–9 vjeç", "10–13 vjeç", "14–18 vjeç"],
+    "plans": {
+      "opening": "Ofertë hapjeje – {opening}/muaj (pagesa për {months} muaj)",
+      "regular": "Çmimi i rregullt – {regular}/muaj",
+      "unsure": "Nuk jam i sigurt"
+    },
+    "errors": {
+      "required": "Kjo fushë është e detyrueshme.",
+      "minlength": "Emri duhet të ketë të paktën 2 shkronja.",
+      "pattern": "Shkruaj një numër telefoni të vlefshëm, p.sh. +383 49 123 456."
+    }
+  },
+  "contact": {
+    "eyebrow": "KONTAKTI",
+    "title": "Na gjej këtu",
+    "subtitle": "Gjakovë, Kosovë. Shkruaj dhe të përgjigjemi shpejt.",
+    "address": "Adresa"
+  },
+  "footer": {
+    "tagline": "Mëso. Ndërto. Krijo.",
+    "navLabel": "Lidhje në fund të faqes",
+    "links": {
+      "programs": "Programet",
+      "prices": "Çmimet",
+      "faq": "Pyetje",
+      "register": "Regjistrimi"
+    },
+    "copy": "© {year} Gjakova Coders · Gjakovë"
+  },
+  "sticky": {
+    "text": "Vetëm {opening}/muaj për regjistrimet e para",
+    "button": "Regjistrohu tani"
+  },
+  "fab": {
+    "label": "Shkruaj në WhatsApp"
+  },
+  "whatsapp": {
+    "intro": "Përshëndetje! Dua të regjistroj fëmijën në Gjakova Coders.",
+    "parent": "Prindi",
+    "phone": "Telefoni",
+    "age": "Mosha",
+    "plan": "Paketa",
+    "note": "Mesazh"
+  }
+}

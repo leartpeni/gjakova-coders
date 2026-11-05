@@ -1,55 +1,59 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { SITE_CONFIG } from '../../core/config/site.config';
-import { eur } from '../../core/utils/money';
+import { I18nService } from '../../core/i18n/i18n.service';
+import { TPipe } from '../../core/i18n/t.pipe';
 import { Reveal } from '../../shared/reveal/reveal';
 import { SectionHeading } from '../../shared/section-heading/section-heading';
 
 @Component({
   selector: 'app-pricing',
-  imports: [SectionHeading, Reveal],
+  imports: [SectionHeading, Reveal, TPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section id="cmimet" class="section" aria-labelledby="cmimet-title">
+    <section id="cmimet" class="section section--tint" aria-labelledby="cmimet-title">
       <div class="container">
         <app-section-heading
           class="center"
           headingId="cmimet-title"
-          eyebrow="ÇMIMET"
-          title="Çmimi i kursit"
-          subtitle="Një çmim i thjeshtë për të gjitha grupmoshat, pa surpriza."
+          [eyebrow]="'pricing.eyebrow' | t"
+          [title]="'pricing.title' | t"
+          [subtitle]="'pricing.subtitle' | t"
         />
         <div class="plans">
           <article class="card card--lift plan" appReveal>
-            <h3>Çmimi i rregullt</h3>
+            <h3>{{ 'pricing.regular.title' | t }}</h3>
             <p class="price">
-              <strong>{{ regular }}</strong> <span>në muaj</span>
+              <strong>{{ 'pricing.regular.price' | t }}</strong>
+              <span>{{ 'pricing.perMonth' | t }}</span>
             </p>
             <ul class="checks">
-              <li>{{ config.lessonsPerWeek }} herë në javë</li>
-              <li>{{ config.lessonDuration }} çdo mësim</li>
-              <li>Të gjitha grupmoshat 7–18 vjeç</li>
-              <li>Grup sipas moshës</li>
+              @for (n of i18n.indices('pricing.regular.checks'); track n) {
+                <li>{{ 'pricing.regular.checks.' + n | t }}</li>
+              }
             </ul>
           </article>
 
           <article class="card card--lift plan plan--featured" [appReveal]="100">
-            <span class="badge">VETËM PËR REGJISTRIMET E PARA</span>
-            <h3>Ofertë hapjeje</h3>
+            <span class="badge">{{ 'pricing.opening.badge' | t }}</span>
+            <h3>{{ 'pricing.opening.title' | t }}</h3>
             <p class="price">
-              <strong>{{ opening }}</strong> <span>në muaj</span>
-              <del><span class="sr-only">Çmimi i mëparshëm: </span>{{ regular }}</del>
+              <strong>{{ 'pricing.opening.price' | t }}</strong>
+              <span>{{ 'pricing.perMonth' | t }}</span>
+              <del
+                ><span class="sr-only">{{ 'pricing.previousPrice' | t }}</span
+                >{{ 'pricing.regular.price' | t }}</del
+              >
             </p>
             <ul class="checks">
-              <li>Pagesa për {{ config.openingMonths }} muaj: {{ total }} gjithsej</li>
-              <li>{{ config.lessonsPerWeek }} herë në javë, {{ config.lessonDuration }}</li>
-              <li>Të gjitha grupmoshat 7–18 vjeç</li>
-              <li>Grup sipas moshës</li>
+              @for (n of i18n.indices('pricing.opening.checks'); track n) {
+                <li>{{ 'pricing.opening.checks.' + n | t }}</li>
+              }
             </ul>
           </article>
         </div>
         <ul class="pills">
-          <li>Oferta vlen vetëm për regjistrimet e para</li>
-          <li>Paguhet për {{ config.openingMonths }} muaj: {{ total }}</li>
+          @for (n of i18n.indices('pricing.pills'); track n) {
+            <li>{{ 'pricing.pills.' + n | t }}</li>
+          }
         </ul>
       </div>
     </section>
@@ -153,8 +157,5 @@ import { SectionHeading } from '../../shared/section-heading/section-heading';
   `,
 })
 export class Pricing {
-  protected readonly config = inject(SITE_CONFIG);
-  protected readonly regular = eur(this.config.regularPrice);
-  protected readonly opening = eur(this.config.openingPrice);
-  protected readonly total = eur(this.config.openingPrice * this.config.openingMonths);
+  protected readonly i18n = inject(I18nService);
 }

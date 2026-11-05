@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { SITE_CONFIG } from '../config/site.config';
+import { I18nService } from '../i18n/i18n.service';
 
 export interface RegistrationMessage {
   readonly parent: string;
@@ -12,6 +13,7 @@ export interface RegistrationMessage {
 @Injectable({ providedIn: 'root' })
 export class WhatsappService {
   private readonly config = inject(SITE_CONFIG);
+  private readonly i18n = inject(I18nService);
 
   /** Phone digits from config (non-digits stripped). */
   get phone(): string {
@@ -29,16 +31,17 @@ export class WhatsappService {
   }
 
   buildMessage(data: RegistrationMessage): string {
+    const t = (key: string) => this.i18n.translate(key);
     const lines = [
-      'Përshëndetje! Dua të regjistroj fëmijën në Gjakova Coders.',
-      `Prindi: ${data.parent.trim()}`,
-      `Telefoni: ${data.phone.trim()}`,
-      `Mosha: ${data.age}`,
-      `Paketa: ${data.plan}`,
+      t('whatsapp.intro'),
+      `${t('whatsapp.parent')}: ${data.parent.trim()}`,
+      `${t('whatsapp.phone')}: ${data.phone.trim()}`,
+      `${t('whatsapp.age')}: ${data.age}`,
+      `${t('whatsapp.plan')}: ${data.plan}`,
     ];
     const note = data.note?.trim();
     if (note) {
-      lines.push(`Mesazh: ${note}`);
+      lines.push(`${t('whatsapp.note')}: ${note}`);
     }
     return lines.join('\n');
   }

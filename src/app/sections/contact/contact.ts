@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { I18nService } from '../../core/i18n/i18n.service';
+import { TPipe } from '../../core/i18n/t.pipe';
 import { SITE_CONFIG } from '../../core/config/site.config';
 import { buildContacts } from '../../core/utils/contacts';
 import { Reveal } from '../../shared/reveal/reveal';
@@ -6,16 +8,16 @@ import { SectionHeading } from '../../shared/section-heading/section-heading';
 
 @Component({
   selector: 'app-contact',
-  imports: [SectionHeading, Reveal],
+  imports: [SectionHeading, Reveal, TPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section id="kontakti" class="section section--tint" aria-labelledby="kontakti-title">
       <div class="container">
         <app-section-heading
           headingId="kontakti-title"
-          eyebrow="KONTAKTI"
-          title="Na gjej këtu"
-          subtitle="Gjakovë, Kosovë. Shkruaj dhe të përgjigjemi shpejt."
+          [eyebrow]="'contact.eyebrow' | t"
+          [title]="'contact.title' | t"
+          [subtitle]="'contact.subtitle' | t"
         />
         <ul class="grid grid--auto">
           @for (c of contacts; track c.id; let i = $index) {
@@ -30,7 +32,7 @@ import { SectionHeading } from '../../shared/section-heading/section-heading';
                   c.label.charAt(0)
                 }}</span>
                 <span class="text">
-                  <strong>{{ c.label }}</strong>
+                  <strong>{{ c.id === 'address' ? ('contact.address' | t) : c.label }}</strong>
                   <span>{{ c.value }}</span>
                 </span>
               </a>

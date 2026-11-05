@@ -1,4 +1,4 @@
-<a class="skip-link" href="#main">Kalo te përmbajtja</a>
+<a class="skip-link" href="#main">{{ 'skipLink' | t }}</a>
 <app-header />
 <main id="main" tabindex="-1">
   <app-hero />
@@ -8,12 +8,6 @@
     <app-programs />
   } @placeholder {
     <div id="programet" class="ph" style="min-height: 900px"></div>
-  }
-
-  @defer (on viewport; prefetch on idle) {
-    <app-roadmap />
-  } @placeholder {
-    <div id="plani" class="ph" style="min-height: 800px"></div>
   }
 
   @defer (on viewport; prefetch on idle) {
@@ -46,11 +40,13 @@
     <div class="ph" style="min-height: 260px"></div>
   }
 
-  @defer (on viewport; prefetch on idle) {
-    <app-registration />
-  } @placeholder {
-    <div id="regjistrimi" class="ph" style="min-height: 820px"></div>
-  }
+  <div id="registration-zone">
+    @defer (on viewport; prefetch on idle) {
+      <app-registration />
+    } @placeholder {
+      <div id="regjistrimi" class="ph" style="min-height: 820px"></div>
+    }
+  </div>
 
   @if (hasContact) {
     @defer (on viewport; prefetch on idle) {
@@ -61,4 +57,5 @@
   }
 </main>
 <app-footer />
+<app-sticky-bar />
 <app-whatsapp-fab />

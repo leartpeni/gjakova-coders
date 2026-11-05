@@ -1,21 +1,22 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TPipe } from '../../core/i18n/t.pipe';
 import { Logo } from '../../shared/logo/logo';
 
 @Component({
   selector: 'app-footer',
-  imports: [Logo],
+  imports: [Logo, TPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <footer class="footer">
       <div class="container inner">
         <app-logo [size]="44" />
-        <p class="tagline">Mëso. Ndërto. Krijo.</p>
-        <nav aria-label="Lidhje në fund të faqes">
+        <p class="tagline">{{ 'footer.tagline' | t }}</p>
+        <nav [attr.aria-label]="'footer.navLabel' | t">
           @for (link of links; track link.href) {
-            <a [href]="link.href">{{ link.label }}</a>
+            <a [href]="link.href">{{ 'footer.links.' + link.id | t }}</a>
           }
         </nav>
-        <p class="copy">© {{ year }} Gjakova Coders · Gjakovë</p>
+        <p class="copy">{{ 'footer.copy' | t: { year } }}</p>
       </div>
     </footer>
   `,
@@ -66,10 +67,9 @@ import { Logo } from '../../shared/logo/logo';
 export class Footer {
   protected readonly year = new Date().getFullYear();
   protected readonly links = [
-    { label: 'Programet', href: '#programet' },
-    { label: 'Plani', href: '#plani' },
-    { label: 'Çmimet', href: '#cmimet' },
-    { label: 'Pyetje', href: '#faq' },
-    { label: 'Regjistrimi', href: '#regjistrimi' },
+    { id: 'programs', href: '#programet' },
+    { id: 'prices', href: '#cmimet' },
+    { id: 'faq', href: '#faq' },
+    { id: 'register', href: '#regjistrimi' },
   ] as const;
 }

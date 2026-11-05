@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "title": "Gjakova Coders – Coding courses for kids in Gjakova"
+  },
+  "skipLink": "Skip to content",
+  "header": {
+    "brandLabel": "Gjakova Coders – home",
+    "mainNav": "Main menu",
+    "mobileNav": "Mobile menu",
+    "links": {
+      "programs": "Programs",
+      "prices": "Pricing",
+      "faq": "FAQ",
+      "register": "Registration"
+    },
+    "cta": "Register",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "langShort": "SQ",
+    "langLabel": "Kalo në shqip"
+  },
+  "hero": {
+    "eyebrow": "NEW COURSE IN GJAKOVA",
+    "titleHighlight": "Coding",
+    "titleRest": "for kids",
+    "lead": "Children and teens aged 7–18 learn to create games, websites and apps. Learn. Build. Create.",
+    "register": "Register now",
+    "programs": "See the programs",
+    "offerChip": "Offer: {opening}/month for the first registrations",
+    "ageChip": "Ages 7–18",
+    "coursesChip": "12 programs",
+    "perWeekChip": "{perWeek} times a week",
+    "city": "Gjakova",
+    "codeVar": "age",
+    "codeText": "Learn. Build. Create."
+  },
+  "stats": {
+    "ariaLabel": "In numbers",
+    "courses": "programs",
+    "levels": "levels",
+    "months": "months of program",
+    "years": "years"
+  },
+  "programs": {
+    "eyebrow": "PROGRAMS",
+    "title": "What children will learn",
+    "subtitle": "Programs by age, from the first steps with the computer to professional web development.",
+    "project": "Project:",
+    "note": "Schedule: {perWeek} lessons a week, {duration} each, groups by age."
+  },
+  "benefits": {
+    "eyebrow": "BENEFITS",
+    "title": "Why coding for children?",
+    "subtitle": "Coding is a new way to think and create, not just something for computers.",
+    "items": [
+      {
+        "title": "Logical thinking",
+        "text": "Children learn to break problems down into small steps."
+      },
+      {
+        "title": "Creativity",
+        "text": "They create their own games, animations and websites."
+      },
+      {
+        "title": "Problem solving",
+        "text": "Mistakes become lessons: they test, change and try again."
+      },
+      {
+        "title": "Skills for the future",
+        "text": "Technology is part of every profession today."
+      }
+    ]
+  },
+  "steps": {
+    "eyebrow": "HOW WE START",
+    "title": "Three simple steps",
+    "subtitle": "From registration to the first lesson.",
+    "items": [
+      {
+        "title": "Register",
+        "text": "Fill in the form or message us on WhatsApp."
+      },
+      {
+        "title": "Trial lesson",
+        "text": "Reserve a spot, meet the teacher and pick the right group."
+      },
+      {
+        "title": "Start learning",
+        "text": "Your child begins with the first project and progresses step by step."
+      }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "PRICING",
+    "title": "Course price",
+    "subtitle": "One simple price for all age groups, no surprises.",
+    "perMonth": "per month",
+    "previousPrice": "Previous price: ",
+    "regular": {
+      "price": "{regular}",
+      "title": "Regular price",
+      "checks": [
+        "{perWeek} times a week",
+        "{duration} per lesson",
+        "All age groups 7–18",
+        "Groups by age"
+      ]
+    },
+    "opening": {
+      "price": "{opening}",
+      "badge": "FIRST REGISTRATIONS ONLY",
+      "title": "Opening offer",
+      "checks": [
+        "Pay for {months} months: {total} in total",
+        "{perWeek} times a week, {duration}",
+        "All age groups 7–18",
+        "Groups by age"
+      ]
+    },
+    "pills": [
+      "The offer is valid for the first registrations only",
+      "Pay for {months} months: {total}"
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Parents’ questions",
+    "subtitle": "Can’t find the answer? Message us and we’ll reply quickly.",
+    "items": [
+      {
+        "question": "What ages is the course for?",
+        "answer": "For children and teens aged 7–18. Groups are split by age."
+      },
+      {
+        "question": "Does my child need to know anything beforehand?",
+        "answer": "No. We start from the basics with Code.org and Scratch and continue step by step."
+      },
+      {
+        "question": "How are the groups formed?",
+        "answer": "By the child’s age and level, so everyone learns at their own pace."
+      },
+      {
+        "question": "Can we try a lesson before registering?",
+        "answer": "Yes. Write to us using the form below and reserve a spot for a trial lesson."
+      },
+      {
+        "question": "How much does the course cost?",
+        "answer": "{regular} per month for {perWeek} lessons a week, {duration} each, for all age groups. For the first registrations: {opening} per month when paying {months} months together ({total} in total)."
+      },
+      {
+        "question": "How do I register?",
+        "answer": "Fill in the form below or contact us by message. We’ll reply with the schedule and available spots."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready for the first step?",
+    "text": "The {opening} per month offer is valid for the first registrations only.",
+    "button": "Register now"
+  },
+  "registration": {
+    "eyebrow": "REGISTRATION",
+    "title": "Register now",
+    "subtitle": "Fill in your details and the message opens in WhatsApp, ready to send.",
+    "labels": {
+      "parent": "Parent’s name",
+      "phone": "Phone number",
+      "age": "Child’s age",
+      "plan": "Package",
+      "note": "Message (optional)"
+    },
+    "submit": "Send via WhatsApp",
+    "place": "Gjakova, Kosovo",
+    "ages": ["7–9 years", "10–13 years", "14–18 years"],
+    "plans": {
+      "opening": "Opening offer – {opening}/month (pay for {months} months)",
+      "regular": "Regular price – {regular}/month",
+      "unsure": "I’m not sure"
+    },
+    "errors": {
+      "required": "This field is required.",
+      "minlength": "The name must have at least 2 letters.",
+      "pattern": "Enter a valid phone number, e.g. +383 49 123 456."
+    }
+  },
+  "contact": {
+    "eyebrow": "CONTACT",
+    "title": "Find us here",
+    "subtitle": "Gjakova, Kosovo. Write to us and we’ll reply quickly.",
+    "address": "Address"
+  },
+  "footer": {
+    "tagline": "Learn. Build. Create.",
+    "navLabel": "Footer links",
+    "links": {
+      "programs": "Programs",
+      "prices": "Pricing",
+      "faq": "FAQ",
+      "register": "Registration"
+    },
+    "copy": "© {year} Gjakova Coders · Gjakova"
+  },
+  "sticky": {
+    "text": "Only {opening}/month for the first registrations",
+    "button": "Register now"
+  },
+  "fab": {
+    "label": "Message us on WhatsApp"
+  },
+  "whatsapp": {
+    "intro": "Hello! I would like to register my child at Gjakova Coders.",
+    "parent": "Parent",
+    "phone": "Phone",
+    "age": "Age",
+    "plan": "Package",
+    "note": "Message"
+  }
+}

@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TPipe } from '../../core/i18n/t.pipe';
+import { CountUp } from '../../shared/count-up/count-up';
 import { Reveal } from '../../shared/reveal/reveal';
 
 interface Stat {
@@ -8,15 +10,15 @@ interface Stat {
 
 @Component({
   selector: 'app-stats',
-  imports: [Reveal],
+  imports: [Reveal, CountUp, TPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section class="stats container" aria-label="Në numra">
+    <section class="stats container" [attr.aria-label]="'stats.ariaLabel' | t">
       <ul class="card" appReveal>
         @for (s of stats; track s.label) {
           <li>
-            <strong>{{ s.value }}</strong>
-            <span>{{ s.label }}</span>
+            <strong [countUp]="s.value"></strong>
+            <span>{{ s.label | t }}</span>
           </li>
         }
       </ul>
@@ -65,9 +67,9 @@ interface Stat {
 })
 export class Stats {
   protected readonly stats: readonly Stat[] = [
-    { value: '7', label: 'kurse' },
-    { value: '3', label: 'nivele' },
-    { value: '9', label: 'muaj program' },
-    { value: '7–18', label: 'vjeç' },
+    { value: '12', label: 'stats.courses' },
+    { value: '3', label: 'stats.levels' },
+    { value: '9', label: 'stats.months' },
+    { value: '7–18', label: 'stats.years' },
   ];
 }
